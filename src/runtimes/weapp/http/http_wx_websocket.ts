@@ -33,8 +33,8 @@ function socketGlobalEventHandle(handler = defaultGloableEventHandler) {
     gloableEventHandler('error', res);
   });
 
-  wx.onSocketClose(() => {
-    gloableEventHandler('close');
+  wx.onSocketClose((res) => {
+    gloableEventHandler('close', res);
   });
 
   wx.onSocketMessage((res) => {
@@ -127,8 +127,8 @@ function socketEventHandle(handler, socketTask) {
   socketTask.onError((res) => {
     handler('error', res);
   });
-  socketTask.onClose(() => {
-    handler('close');
+  socketTask.onClose((res) => {
+    handler('close', res);
   });
   socketTask.onMessage((res) => {
     handler('message', res);
