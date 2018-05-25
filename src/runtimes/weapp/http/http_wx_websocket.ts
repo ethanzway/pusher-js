@@ -25,24 +25,22 @@ function socketGlobalEventHandle(handler = defaultGloableEventHandler) {
   isInitSocketGlobalEvent = true;
 
   // 绑定全局监听initListen
-  wx.onSocketOpen(() => {
+  apis.onSocketOpen(() => {
     gloableEventHandler('open');
   });
 
-  wx.onSocketError((res) => {
+  apis.onSocketError((res) => {
     gloableEventHandler('error', res);
   });
 
-  wx.onSocketClose((res) => {
+  apis.onSocketClose((res) => {
     gloableEventHandler('close', res);
   });
 
-  wx.onSocketMessage((res) => {
+  apis.onSocketMessage((res) => {
     gloableEventHandler('message', res);
   });
 }
-
-
 
 let globalWebsocket;
 let nextGlobalWebsocket;
