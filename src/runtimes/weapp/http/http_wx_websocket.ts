@@ -118,8 +118,6 @@ function connectSingleSocket(instance) {
   return createSingleSocketTask(instance);
 }
 
-
-
 function socketEventHandle(handler, socketTask) {
   socketTask.onOpen(() => {
     handler('open');
