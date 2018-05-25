@@ -2152,16 +2152,16 @@ module.exports =
 	        return;
 	    }
 	    isInitSocketGlobalEvent = true;
-	    wx.onSocketOpen(() => {
+	    apis.onSocketOpen(() => {
 	        gloableEventHandler('open');
 	    });
-	    wx.onSocketError((res) => {
+	    apis.onSocketError((res) => {
 	        gloableEventHandler('error', res);
 	    });
-	    wx.onSocketClose((res) => {
+	    apis.onSocketClose((res) => {
 	        gloableEventHandler('close', res);
 	    });
-	    wx.onSocketMessage((res) => {
+	    apis.onSocketMessage((res) => {
 	        gloableEventHandler('message', res);
 	    });
 	}
